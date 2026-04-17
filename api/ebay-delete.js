@@ -3,14 +3,14 @@ const crypto = require('crypto');
 export default function handler(req, res) {
   if (req.method === 'GET') {
     const challengeCode = req.query.challenge_code;
-    
+
     // eBay sends a challenge code to test if we are real
     if (challengeCode) {
       // THE EXACT TOKEN YOU MUST TYPE IN EBAY DASHBOARD
-      const verificationToken = "ebay-webhook-1lw26ucgh-methew636373-8928s-projects"; 
-      
+      const verificationToken = "ebay-webhook-1lw26ucgh-methew636373-8928s-projects";
+
       // Using the EXACT URL you provided
-      const endpointURL = "https://ebay-webhook-1lw26ucgh-methew636373-8928s-projects.vercel.app/api/ebay-delete"; 
+      const endpointURL = "https://ebay-webhook-1lw26ucgh-methew636373-8928s-projects.vercel.app/api/ebay-delete";
 
       // Computes matching signature hash
       const stringToHash = challengeCode + verificationToken + endpointURL;
