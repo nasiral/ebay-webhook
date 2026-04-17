@@ -1,11 +1,9 @@
 export default function handler(req, res) {
-  if (req.method === 'POST') {
-    console.log('eBay deletion request:', req.body);
+  res.setHeader("Content-Type", "application/json");
 
-    return res.status(200).json({
-      status: "received"
-    });
+  if (req.method === "POST") {
+    return res.status(200).json({ success: true });
   }
 
-  res.status(200).send("OK");
+  return res.status(200).json({ status: "OK" });
 }
